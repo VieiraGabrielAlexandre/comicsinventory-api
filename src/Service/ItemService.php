@@ -28,4 +28,12 @@ class ItemService {
         $clean['tipo'] = $clean['tipo'] ?: 'hq';
         return $clean;
     }
+
+    public function count(): int {
+        return $this->repo->countAll();
+    }
+
+    public function listPaginated(int $page, int $perPage): array {
+        return $this->repo->findPage($page, $perPage);
+    }
 }

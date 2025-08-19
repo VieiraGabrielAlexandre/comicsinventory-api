@@ -41,4 +41,20 @@ class ItemRepository {
         $stmt = $this->db->prepare("DELETE FROM items WHERE id = ?");
         return $stmt->execute([$id]);
     }
+
+    public function countAll(): int {
+        $stmt = $this->db->query("SELECT COUNT(*) AS c FROM items");
+        return (int)$stmt->fetchColumn();
+    }
+
+    public function findPage(int $page, int $perPage): array {
+        $offset = ($page - 1) * $perPage;
+        $sql = "SELECT * FROM items ORDER BY id DESC LIMIT :limit OFFSET :offset";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':limit',  $perPage, \PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $offset,  \PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
 }
