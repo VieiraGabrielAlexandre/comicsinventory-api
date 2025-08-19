@@ -1,6 +1,3 @@
-Aqui está um **README.md** que você pode colocar na raiz do projeto. Ele explica a API em PHP puro, JWT, o script Python de importação e como rodar tudo:
-
----
 
 # 📚 Comics Inventory API
 
