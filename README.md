@@ -166,7 +166,3 @@ python import_hqs.py \
 * **Script Python**: importa planilha para API
 * **JWT**: expira em 30 min
 * **Segurança**: dados sensíveis no `.env`
-
----
-
-👉 Quer que eu já monte também um `requirements.txt` pronto para você só rodar `pip install -r requirements.txt` no seu venv?
